@@ -2,7 +2,6 @@ import openai
 import streamlit as st
 import json
 import pandas as pd
-import numpy as np
 
 user_api_key = st.sidebar.text_input("OpenAI API key", type="password")
 client = openai.OpenAI(api_key=user_api_key)
@@ -39,6 +38,5 @@ if st.button('Submit'):
     print(res_dict)
     
     vocab_tableau = pd.DataFrame.from_dict(res_dict)
-    vocab_tableau = np.arange(1, len(vocab_tableau) + 1)
     print(vocab_tableau)
     st.table(vocab_tableau)
